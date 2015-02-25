@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head><title>Git Basics</title></head>
+<style>
+body {font-family: sans-serif; margin: 0px; padding 0px;}
+.title{ font-size: 18pt; font-weight: bold; margin-top: 1em; margin-bottom: .5em; }
+.subtitle{ font-size: 14pt; font-weight: bold; background: #9999ff;padding-left: 1em; margin-bottom: .5em}
+.explain{ font-size: 12pt; padding-left: 3em; margin-bottom: 2em;}
+.explain-code{ font-size: 12pt; padding-left: 3em}
+.code{font-family: consolas; text-size: 12pt; margin-top: 2em; padding: .5em; border: 2px solid black;}
+</style>
+<body>
+<div class="title">Basic GIT commands for this class</div>
+<div class="subtitle">Getting a local copy of the repository</div>
+<div class="explain">This GIT command will create a local copy of the remote code repository. </div>
+<div class="code">git clone https://github.com/em1082/mysite.git</div>
+<div class="subtitle">Listing all available branches</div>
+<div class="explain">GIT allows you to create branches where you can experiment without affecting your original files.  I will be creating a new branch containing each class&apos; code.  This structure will let you compare differences between classes simply by checking out the branches you want to compare.  To see all of the branches available in the remote repository, run the following command.</div>
+<div class="code">git branch -r</div>
+
+<div class="subtitle">To get a copy of a class branch</div>
+<div class="explain">At the end of each classs I will &quot;push&quot; my changes to the remote repository at GitHub.  To refresh your local copy of our repository containing all of our changes you'll use these commands</div>
+<div class="explain-code"><strong>Change your local repository to point to the master branch:</strong>
+<div class="code">git checkout master</div></div>
+
+<div class="explain-code"><strong>Download changes from GitHub and merge them into your copy of the repository:</strong>
+<div class="code">git pull</div></div>
+
+<div class="explain-code"><strong>List all of the available branches now in your local copy:</strong><div class="code">git branch</div></div>
+
+<div class="explain-code"><strong>Switch over to one of the branches:</strong>
+<div class="code">git checkout <strong>BRANCH_NAME</strong></div></div>
+
+<div class="subtitle">Creating your own sandbox branches</div>
+<div class="explain">One of the best ways to learn to code is to play with it.  Git lets you create your own branches to test out your ideas.  When you're done you can just delete your branch and none of your original files will have been changed.  To create a sandbox branch:</div>
+<div class="explain-code"><strong>Start by checking out the branch you would like as your starting point:</strong><div class="code">git checkout 02_VARIABLES</div></div>
+<div class="explain-code"><strong>Then dream up a name for your new branch and type:</strong><div class="code">git checkout -b my_new_branch</div></div>
+<div class="explain-code"><strong>You can now edit your copy of the files as much as you want and can always get back to the original.</strong></div>
+
+<div class="title">That's just the tip of the iceberg</div>
+<div class="explain">Git is an incredibly powerful source control tool with simple and powerful features.  Now that you have it, put it to work for you!< br/>
+Google &quot;git tutorial&quot; and take a trip on the source control bandwagon.  Atlassian (http://www.atlassian.com) has some great YouTube videos as do others.</div>
+
+<hr><center>&lt;End&gt;</center><hr/>
+
+</body>
+</html>
