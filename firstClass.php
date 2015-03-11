@@ -1,43 +1,46 @@
 <?php
 
-$dumbWay = ["firstName" => "Clara", "lastName" => "Oswald"];
+// $user1 = ["firstName" => "Clara", "lastName" => "Oswald", "userid" => "coswald"];
+// $user2 = ["firstName" => "Joshua", "lastName" => "Marrero", "userid" => "jmarrero"];
 
-class Person{
-    public $firstName;
-    public $lastName;
-
-    public function greet(){
-        return("Hello ".$this->firstName);
-    }
+class Person {
+	public $firstName;
+	public $lastName;
 }
 
-class Member extends Person{
-    public $memberSince;
-
-    public function greet(){
-        return("Hello ".$this->firstName.". Thank you for your membership.");
-    }
+class User extends Person{
+	public $userid;
+	public $password;
+	public $numberOfLogins = 0;
+	
+	function __construct($firstName, $lastName, $userid, $password){
+		$this->firstName = $firstName;
+		$this->lastName  = $lastName;
+		$this->userid    = $userid;
+		$this->password  = $password;
+	}
+	
+	function login($pswd){
+		if($pswd === $this->password){
+			$this->numberOfLogins++;
+			return("Welcome ".$this->firstName.". This is login # ".$this->numberOfLogins);	
+		}else{
+			return("NONE SHALL PASS");
+		}
+	}
 }
 
-$p1 = new Person();
-$p1->firstName   = 'Clara';
-$p1->lastName    = 'Oswald';
+$user1 = new User("Clara", "Oswald", "coswald", "secret1");
 
-$m1 = new Member();
-$m1->firstName = "Amy";
-$m1->lastName  = "Pond";
-$m1->memberSince = 2005;
+say("the user is:".$user1->userid."<hr>");
+say("login attempts:");
+say($user1->login("secret1"));
+say($user1->login("secret2"));
+say($user1->login("pswd1"));
+say($user1->login("secret1"));
 
-var_dump($dumbWay);
-echo("<br>");
-var_dump($p1);
-echo("<br>");
-var_dump($m1);
-echo("<br>");
-echo($p1->greet());
-echo("<br>");
-echo($m1->greet());
-echo("<br>");
-echo(serialize($m));
+function say($thingToSay){
+	echo($thingToSay."<br>");
+}
 
 ?>
