@@ -3,6 +3,8 @@
 <head>
 <title>Notes</title>
 </head>
+<body>
+<?php include '../header.php'; ?>
 <div class="title">Create a note</div>
 <div class="explanation">Enter a new note and hit submit.</div>
 <div class="noteForm">
@@ -68,6 +70,7 @@
 		</div>
 	</form>
 </div>
+</body>
 </html>
 
 
