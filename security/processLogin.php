@@ -1,14 +1,22 @@
 <?php 
 include "./functions.php";
-session_start();
 
-$loggedIn = login($_POST["userid"], $_POST["password"]);
+// Check the user's password.  $loggedIn will be true if it's good.
+$loggedIn = doLogin($_POST["userid"], $_POST["password"]);
 
 if($loggedIn){
+
+	// Set the userid in the session to the userid passed in
 	$_SESSION['userid']=$_POST['userid'];
-	header("Location: ./main.php");
+
+	redirect('./main.php');
+
 }else{
-	header("Location: ./login.html");
+
+	// Add a friendly message to be displayed on the login page.
+	$_SESSION['login_failure_message'] = 'Your user ID or password does not match what we have.';
+
+	redirect('./login.php');
 }
 
 ?>
