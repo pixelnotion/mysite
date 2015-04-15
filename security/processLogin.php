@@ -2,7 +2,7 @@
 include "./functions.php";
 
 // Check the user's password.  $loggedIn will be true if it's good.
-$loggedIn = doLogin($_POST["userid"], $_POST["password"]);
+$loggedIn = doDBLogin($_POST["userid"], $_POST["password"]);
 
 if($loggedIn){
 

@@ -30,6 +30,29 @@ function doLogin($userid, $password){
 	return false;
 }
 
+function doDBLogin($userid, $password){
+	$retVal = false;
+
+	$mysql = new mysqli("localhost", "root", "root", "phpschema", 3306);
+	if ($mysql->connect_errno) {
+		echo "Failed to connect to MySQL: (" . $mysql->connect_error . ")";
+	}
+
+	$result = $mysql->query("select email, pswd from users where email='$userid'");
+
+	if($result->num_rows == 0){
+		$retVal = false;
+	}else{
+		$result->data_seek(1);
+		$aRow = $result->fetch_assoc();
+		
+		$retVal = ($password == $aRow['pswd']);
+	}
+
+	$result->free();
+
+	return $retVal;
+}
 /*
  * Logs a user out by destroying the session and depositing them on the login page.
  */
@@ -39,3 +62,22 @@ function doLogout(){
 }
 
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
