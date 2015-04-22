@@ -1,3 +1,6 @@
+<?php
+header('Content-Type: application/vnd.ms-excel');
+?>
 <!DOCTYPE html>
 
 <!-- Open the HTML document as usual -->

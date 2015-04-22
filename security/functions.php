@@ -71,6 +71,23 @@ function doesUserExist($userid){
 	return $retVal;
 }
 
+function createUser($firstName, $lastName, $email, $password){
+	$retVal = false;
+
+	$mysql = new mysqli("localhost", "root", "root", "phpschema", 3306);
+	if ($mysql->connect_errno) {
+		$retVal = false;
+	}
+
+	$queryString = "insert into users (firstname, lastname, email, pswd) values ('$firstName', '$lastName', '$email', '$password')";
+
+	$mysql->query($queryString);
+
+	$retVal = true;
+
+	return $retVal;
+}
+
 /*
  * Logs a user out by destroying the session and depositing them on the login page.
  */

@@ -8,6 +8,19 @@ if(doesUserExist($email)){
 	redirect('./register.php');
 }
 
+if($_POST['password'] != $_POST['password2']){
+	$_SESSION['registration_failure_message'] = "Your passwords don't match.";
+	redirect('./register.php');
+}
+
+if(createUser($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['password'])){
+	$_SESSION['login_failure_message'] = "Welcome to Camelot. Please log in.";
+	redirect('./login.php');
+}else{
+	$_SESSION['registration_failure_message'] = "We could not create your user account.";
+	redirect('./register.php');
+
+}
 /*
 if($loggedIn){
 	// Set the userid in the session to the userid passed in
