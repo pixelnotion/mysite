@@ -45,7 +45,7 @@ function doDBLogin($userid, $password){
 	}else{
 		$result->data_seek(1);
 		$aRow = $result->fetch_assoc();
-		
+
 		$retVal = ($password == $aRow['pswd']);
 	}
 
