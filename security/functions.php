@@ -53,6 +53,24 @@ function doDBLogin($userid, $password){
 
 	return $retVal;
 }
+
+function doesUserExist($userid){
+	$retVal = true;
+
+	$mysql = new mysqli("localhost", "root", "root", "phpschema", 3306);
+	if ($mysql->connect_errno) {
+		echo "Failed to connect to MySQL: (" . $mysql->connect_error . ")";
+	}
+
+	$result = $mysql->query("select email from users where email='$userid'");
+
+	$retVal = ($result->num_rows > 0);
+
+	$result->free();
+
+	return $retVal;
+}
+
 /*
  * Logs a user out by destroying the session and depositing them on the login page.
  */

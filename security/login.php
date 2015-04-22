@@ -37,7 +37,7 @@ if (isset($_SESSION['login_failure_message'])) {
             <div style="display:table-cell"><input type="password" name="password" id="password"/></div>
         </div>
         <div style="display: table-row">
-            <div style="display:table-cell">&nbsp;</div>
+            <div style="display:table-cell"><a href="register.php">Register Free</a></div>
             <div style="display:table-cell; text-align: right"><input type="submit" value="login"/></div>
         </div>
     </div>
