@@ -1,5 +1,12 @@
 <?php
 session_start();
+
+$email = '';
+if(isset($_SESSION['email'])){
+    $email = $_SESSION['email'];
+}
+// The fancy way to do the same thing
+// $email = (isset($_SESSION['email']) ? $_SESSION['email'] : '');
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +37,13 @@ if (isset($_SESSION['login_failure_message'])) {
     <div style="display: table">
         <div style="display: table-row">
             <div style="display:table-cell; text-align: right"><label for="userid">userid:</label></div>
-            <div style="display:table-cell"><input type="text" name="userid" id="userid"/></div>
+            <div style="display:table-cell"><input
+                                type="text"
+                                name="userid"
+                                id="userid"
+                                value="<?=$email?>"
+                            />
+            </div>
         </div>
         <div style="display: table-row">
             <div style="display:table-cell; text-align: right"><label for="password">password:</label></div>

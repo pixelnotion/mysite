@@ -1,5 +1,13 @@
 <?php
 session_start();
+
+$firstName = (isset($_SESSION['postData'])
+                    ? $_SESSION['postData']['firstName']
+                    : '');
+
+$lastName = (isset($_SESSION['postData']) ? $_SESSION['postData']['lastName']  : '');
+$email = (isset($_SESSION['postData']) ? $_SESSION['postData']['email']     : '');
+
 ?>
 
 <!DOCTYPE html>
@@ -30,15 +38,15 @@ if (isset($_SESSION['registration_failure_message'])) {
     <div style="display: table">
         <div style="display: table-row">
             <div style="display:table-cell; text-align: right"><label for="firstName">First Name:</label></div>
-            <div style="display:table-cell"><input type="text" name="firstName" id="firstName"/></div>
+            <div style="display:table-cell"><input type="text" name="firstName" id="firstName" value="<?=$firstName?>"/></div>
         </div>
         <div style="display: table-row">
             <div style="display:table-cell; text-align: right"><label for="lastName">Last Name:</label></div>
-            <div style="display:table-cell"><input type="text" name="lastName" id="lastName"/></div>
+            <div style="display:table-cell"><input type="text" name="lastName" id="lastName" value="<?=$lastName?>"/></div>
         </div>
         <div style="display: table-row">
             <div style="display:table-cell; text-align: right"><label for="email">email:</label></div>
-            <div style="display:table-cell"><input type="text" name="email" id="email"/></div>
+            <div style="display:table-cell"><input type="text" name="email" id="email" value="<?=$email?>"/></div>
         </div>
         <div style="display: table-row">
             <div style="display:table-cell; text-align: right"><label for="password">Password:</label></div>
