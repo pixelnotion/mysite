@@ -1,0 +1,43 @@
+BODY{
+    padding: 0px;
+    margin: 0px;
+}
+
+.title{
+    font-family:Helvetica;
+    font-size: 40px;
+    color: red;
+    background:yellowgreen;
+    padding: .2em;
+}
+.explanation{
+    font-family: Garamond;
+    font-size: 20px;
+    color: darkgreen;
+    background: lightblue;
+    padding: .2em;
+    border-bottom: 2px solid black;
+}
+.tableHead{
+    display:table-row;
+    background: yellow;
+    font-family: consolas;
+    font-size: 18px;
+    font-weight: bold;
+}
+.keyCell{
+    display:table-cell;
+    background:blue;
+    color:white;
+    font-family:cursive;
+    font-size: 14px;
+    font-weight: bold;
+    padding-right: 2em;
+}
+.valueCell{
+    display:table-cell;
+    background:blue;
+    color:white;
+    font-family:monospace;
+    font-size: 14px;
+}
